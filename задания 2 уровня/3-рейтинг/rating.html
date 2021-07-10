@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+        integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+        crossorigin="anonymous" />
+    <style>
+        i {
+            font-size: 50px;
+        }
+
+        .golden {
+            color: gold;
+        }
+    </style>
+</head>
+
+<body>
+    <i id="first" class="fas fa-star"></i>
+    <i id="second" class="fas fa-star"></i>
+    <i id="third" class="fas fa-star"></i>
+    <i id="fourth" class="fas fa-star"></i>
+    <i id="fifth" class="fas fa-star"></i>
+
+    <!-- Задание. Используя заготовку, сделайте чтобы при наведении на вторую звезду
+    подсвечивались первая и вторая звезды. При наведени на третью звезду подсвечивались
+    первая, вторая и третья звезды, и т.д. 
+    mouseover - это событие срабатывает когда мы наводим на элемент.
+    mouseout - это событие срабатывает когда мы перестаем наводить на элемент.
+	Вы можете пойти более продвинутым путем, и получать предыдущий элемент 
+	например с помощью https://mzl.la/3a4SPlR
+    -->
+
+    <script>
+        "use strict"
+        let firstStar = document.getElementById('first');
+        let secondStar = document.getElementById('second');
+        let thirdStar = document.getElementById('third');
+        let fourthStar = document.getElementById('fourth');
+        let fifthStar = document.getElementById('fifth');
+
+        let goldenClass = 'golden';
+
+        //Добавление goldenClass
+
+        function firstAdd() {
+            firstStar.classList.add(goldenClass);
+        }
+        function secondAdd() {
+            secondStar.classList.add(goldenClass);
+            firstAdd();
+        }
+        function thirdAdd() {
+            thirdStar.classList.add(goldenClass);
+            secondAdd();
+        }
+        function fourthAdd() {
+            fourthStar.classList.add(goldenClass);
+            thirdAdd();
+        }
+        function fifthAdd() {
+            fifthStar.classList.add(goldenClass);
+            fourthAdd();
+        }
+
+        //Удаление goldenClass
+
+        function firstRem() {
+            firstStar.classList.remove(goldenClass);
+        }
+        function secondRem() {
+            secondStar.classList.remove(goldenClass);
+            firstRem();
+        }
+        function thirdRem() {
+            thirdStar.classList.remove(goldenClass);
+            secondRem();
+        }
+        function fourthRem() {
+            fourthStar.classList.remove(goldenClass);
+            thirdRem();
+        }
+        function fifthRem() {
+            fifthStar.classList.remove(goldenClass);
+            fourthRem();
+        }
+        function fifthRem() {
+            fifthStar.classList.remove(goldenClass);
+            fourthRem();
+        }
+
+
+        firstStar.addEventListener('mouseover', function () {
+            if (!firstStar.classList.contains('goldenClass')) {
+                firstAdd();
+            }
+        });
+
+        firstStar.addEventListener('mouseout', function () {
+            fifthRem();
+        });
+
+        secondStar.addEventListener('mouseover', function () {
+            if (!secondStar.classList.contains('goldenClass')) {
+                secondAdd();
+            }
+        });
+
+        secondStar.addEventListener('mouseout', function () {
+            secondRem();
+        });
+
+
+        thirdStar.addEventListener('mouseover', function () {
+            if (!thirdStar.classList.contains('goldenClass')) {
+                thirdAdd();
+            }
+        });
+
+        thirdStar.addEventListener('mouseout', function () {
+            thirdRem();
+        });
+
+
+        fourthStar.addEventListener('mouseover', function () {
+            if (!fourthStar.classList.contains('goldenClass')) {
+                fourthAdd();
+            }
+        });
+
+        fourthStar.addEventListener('mouseout', function () {
+            fourthRem();
+        });
+
+        fifthStar.addEventListener('mouseover', function () {
+            if (!fifthStar.classList.contains('goldenClass')) {
+                fifthAdd();
+            }
+        });
+
+        fifthStar.addEventListener('mouseout', function () {
+            fifthRem();
+        });
+
+    </script>
+</body>
+
+</html>
